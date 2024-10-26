@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import BarChart from './components/barchart';
 
 function App() {
   const [userData, setUserData] = useState({
