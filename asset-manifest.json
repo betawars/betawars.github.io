@@ -1,15 +1,13 @@
 {
   "files": {
-    "main.css": "/betawars_portfolio/static/css/main.f855e6bc.css",
-    "main.js": "/betawars_portfolio/static/js/main.24a4f528.js",
-    "static/js/453.ed3810f9.chunk.js": "/betawars_portfolio/static/js/453.ed3810f9.chunk.js",
+    "main.css": "/betawars_portfolio/static/css/main.7fdc4bab.css",
+    "main.js": "/betawars_portfolio/static/js/main.f4ae4a85.js",
     "index.html": "/betawars_portfolio/index.html",
-    "main.f855e6bc.css.map": "/betawars_portfolio/static/css/main.f855e6bc.css.map",
-    "main.24a4f528.js.map": "/betawars_portfolio/static/js/main.24a4f528.js.map",
-    "453.ed3810f9.chunk.js.map": "/betawars_portfolio/static/js/453.ed3810f9.chunk.js.map"
+    "main.7fdc4bab.css.map": "/betawars_portfolio/static/css/main.7fdc4bab.css.map",
+    "main.f4ae4a85.js.map": "/betawars_portfolio/static/js/main.f4ae4a85.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.24a4f528.js"
+    "static/css/main.7fdc4bab.css",
+    "static/js/main.f4ae4a85.js"
   ]
 }
