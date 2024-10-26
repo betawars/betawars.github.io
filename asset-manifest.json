@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/betawars_portfolio/static/css/main.7fdc4bab.css",
-    "main.js": "/betawars_portfolio/static/js/main.f4ae4a85.js",
+    "main.js": "/betawars_portfolio/static/js/main.2160d94c.js",
     "index.html": "/betawars_portfolio/index.html",
     "main.7fdc4bab.css.map": "/betawars_portfolio/static/css/main.7fdc4bab.css.map",
-    "main.f4ae4a85.js.map": "/betawars_portfolio/static/js/main.f4ae4a85.js.map"
+    "main.2160d94c.js.map": "/betawars_portfolio/static/js/main.2160d94c.js.map"
   },
   "entrypoints": [
     "static/css/main.7fdc4bab.css",
-    "static/js/main.f4ae4a85.js"
+    "static/js/main.2160d94c.js"
   ]
 }
