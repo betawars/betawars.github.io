@@ -7,9 +7,9 @@ const header = {
 const about = {
   // all the properties are optional - can be left empty or deleted
   name: 'Shashank Sanjay Betawar',
-  role: 'Full-stack developer|Software engineer|Tech Enthusiast',
+  role: 'Full-stack developer | Software engineer | Tech Enthusiast',
   description:
-    'Hi! I am a grad student at Oregon State university with computer science as my majors. Lets talk tech!',
+    'I’m a passionate Fullstack Developer and a grad student at OSU. My expertise lies in creating intuitive user interfaces using React and developing robust backend solutions with Spring Boot. I thrive on the challenge of transforming ideas into functional products, embracing every opportunity to learn and grow in this fast-paced field. Committed to staying updated with the latest technologies, I enjoy collaborating with others who share my enthusiasm for software engineering. Let’s connect and explore how we can innovate together!',
   resume: 'https://drive.google.com/file/d/1VICwnFeqzInWz-N48V7brACJBK5DAAFZ/view?usp=drive_link',
   social: {
     linkedin: 'https://www.linkedin.com/in/shashank-betawar-0600b9147',
