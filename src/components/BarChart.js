@@ -1,8 +1,9 @@
-import React from "react";
-import { Bar } from "react-chartjs-2";
+import React, { Fragment } from "react";
 
 function BarChart({ chartData }) {
-  return <Bar data={chartData} />;
+  return <Fragment>
+    <h1>Trying to display something</h1>
+  </Fragment>;
 }
 
 export default BarChart;
