@@ -1,19 +1,19 @@
 const header = {
   // all the properties are optional - can be left empty or deleted
-  homepage: 'https://rjshkhr.github.io/cleanfolio',
-  title: 'JS.',
+  homepage: 'https://betawars.github.io/betawars_portfolio',
+  title: 'SB.',
 }
 
 const about = {
   // all the properties are optional - can be left empty or deleted
-  name: 'John Smith',
-  role: 'Front End Engineer',
+  name: 'Shashank Sanjay Betawar',
+  role: 'Full-stack developer|Software engineer|Tech Enthusiast',
   description:
-    'Adipisicing sit fugit ullam unde aliquid sequi Facilis soluta facilis perspiciatis corporis nulla aspernatur. Autem eligendi rerum delectus modi quisquam? Illo ut quasi nemo ipsa cumque perspiciatis! Maiores minima consectetur.',
-  resume: 'https://example.com',
+    'Hi! I am a grad student at Oregon State university with computer science as my majors. Lets talk tech!',
+  resume: 'https://drive.google.com/file/d/1VICwnFeqzInWz-N48V7brACJBK5DAAFZ/view?usp=drive_link',
   social: {
-    linkedin: 'https://linkedin.com',
-    github: 'https://github.com',
+    linkedin: 'https://www.linkedin.com/in/shashank-betawar-0600b9147',
+    github: 'https://github.com/betawars',
   },
 }
 
@@ -54,16 +54,12 @@ const skills = [
   'React',
   'Redux',
   'SASS',
-  'Material UI',
   'Git',
-  'CI/CD',
-  'Jest',
-  'Enzyme',
 ]
 
 const contact = {
   // email is optional - if left empty Contact section won't show up
-  email: 'johnsmith@mail.com',
+  email: 'betawars@oregonstate.edu',
 }
 
 export { header, about, projects, skills, contact }
