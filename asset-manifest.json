@@ -1,13 +1,17 @@
 {
   "files": {
-    "main.css": "/betawars_portfolio/static/css/main.7fdc4bab.css",
-    "main.js": "/betawars_portfolio/static/js/main.474895fa.js",
-    "index.html": "/betawars_portfolio/index.html",
-    "main.7fdc4bab.css.map": "/betawars_portfolio/static/css/main.7fdc4bab.css.map",
-    "main.474895fa.js.map": "/betawars_portfolio/static/js/main.474895fa.js.map"
+    "main.css": "/betawars.github.io/betawars_portfolio/static/css/main.58462fbc.css",
+    "main.js": "/betawars.github.io/betawars_portfolio/static/js/main.4be83add.js",
+    "static/media/u-said-it-v13-1167.mp3": "/betawars.github.io/betawars_portfolio/static/media/u-said-it-v13-1167.becd66496be9c81ddf9d.mp3",
+    "static/media/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg": "/betawars.github.io/betawars_portfolio/static/media/patrick-tomasso-Oaqk7qqNh_c-unsplash.8ca90014fb6ce5980110.jpg",
+    "static/media/spaceman.png": "/betawars.github.io/betawars_portfolio/static/media/spaceman.5ec7fcfa9a803ead726c.png",
+    "static/media/profile-img.png": "/betawars.github.io/betawars_portfolio/static/media/profile-img.5179e446ac1a570ce69b.png",
+    "index.html": "/betawars.github.io/betawars_portfolio/index.html",
+    "main.58462fbc.css.map": "/betawars.github.io/betawars_portfolio/static/css/main.58462fbc.css.map",
+    "main.4be83add.js.map": "/betawars.github.io/betawars_portfolio/static/js/main.4be83add.js.map"
   },
   "entrypoints": [
-    "static/css/main.7fdc4bab.css",
-    "static/js/main.474895fa.js"
+    "static/css/main.58462fbc.css",
+    "static/js/main.4be83add.js"
   ]
 }
