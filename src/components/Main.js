@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 import LogoComponent from '../subComponents/LogoComponent'
-import PowerButton from '../subComponents/PowerButton'
 import SocialIcons from '../subComponents/SocialIcons'
 import { YinYang } from './AllSvgs'
 import Intro from './Intro'
@@ -68,7 +67,7 @@ justify-content: space-evenly;
 `
 
 const ABOUT = styled(NavLink)`
-color: ${props => props.click ? props.theme.body : props.theme.text};
+color: ${props => props.click ? "#000" : props.theme.text};
 text-decoration: none;
 z-index:1;
 `
@@ -116,7 +115,7 @@ transition: all 1s ease;
 const DarkDiv = styled.div`
 position: absolute;
 top: 0;
-background-color: #000;
+background-color: #006ea9;
 bottom: 0;
 right: 50%;
 width: ${props => props.click ? '50%' : '0%'};
@@ -134,18 +133,17 @@ const Main = () => {
 
     return (
         <MainContainer>
-         <DarkDiv   click={click}/>
+         <DarkDiv   click={props => props.click}/>
             <Container>
-            <PowerButton />
-            <LogoComponent theme={click ? 'dark' :'light'}/>
-            <SocialIcons theme={click ? 'dark' :'light'} />
+            <LogoComponent theme={!click ? 'dark' :'light'}/>
+            <SocialIcons theme={!click ? 'dark' :'light'} />
            
-            <Center click={click}>
+            {/* <Center click={click}>
                 <YinYang  onClick={()=> handleClick()} width={click ? 120 : 200} height={click ? 120 : 200} fill='currentColor' />
                 <span>click here</span>
-            </Center>
+            </Center> */}
 
-            <Contact target="_blank" href="mailto:codebucks27@gmail.com">
+            <Contact target="_blank" href="mailto:betawars@oregonstate.edu">
                 <motion.h2
                 initial={{
                     y:-200,
@@ -162,7 +160,7 @@ const Main = () => {
                     Say hi..
                 </motion.h2>
             </Contact>
-            <BLOG to="/blog">
+            {/* <BLOG to="/blog">
                 <motion.h2
                 initial={{
                     y:-200,
@@ -177,8 +175,8 @@ const Main = () => {
                 >
                     Blog
                 </motion.h2>
-            </BLOG>
-            <WORK to="/work" click={+click}>
+            </BLOG> */}
+            {/* <WORK to="/work" click={+!click}>
                 <motion.h2
                 initial={{
                     y:-200,
@@ -193,9 +191,9 @@ const Main = () => {
                 >
                     Work
                 </motion.h2>
-            </WORK>
+            </WORK> */}
             <BottomBar>
-            <ABOUT to="/about" click={+click}>
+            <ABOUT to="/about" click={+!click}>
                 <motion.h2
                 initial={{
                     y:200,
@@ -211,7 +209,7 @@ const Main = () => {
                     About.
                 </motion.h2>
             </ABOUT>
-            <SKILLS to="/skills">
+            {/* <SKILLS to="/skills">
                 <motion.h2
                 initial={{
                     y:200,
@@ -226,12 +224,13 @@ const Main = () => {
                 >
                     My Skills.
                 </motion.h2>
-            </SKILLS>
+            </SKILLS> */}
 
             </BottomBar>
 
             </Container>
-            {click ? <Intro click={click} /> : null }
+            <Intro/>
+            {/* {click ? <Intro click={click} /> : null } */}
         </MainContainer>
     )
 }

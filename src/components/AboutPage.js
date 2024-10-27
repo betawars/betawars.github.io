@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled, { keyframes, ThemeProvider } from 'styled-components'
 import {DarkTheme} from './Themes';
+import {motion} from 'framer-motion'
 
 
 import LogoComponent from '../subComponents/LogoComponent';
 import SocialIcons from '../subComponents/SocialIcons';
-import PowerButton from '../subComponents/PowerButton';
 import ParticleComponent from '../subComponents/ParticleComponent';
 import BigTitle from '../subComponents/BigTitlte'
-import astronaut from '../assets/Images/spaceman.png'
+import issac from '../assets/Images/issac.png'
+import issacHi from '../assets/Images/issacHi.png'
 
 const Box = styled.div`
 background-color: ${props => props.theme.body};
@@ -23,18 +24,53 @@ const float = keyframes`
 100% { transform: translateY(-10px) }
 
 `
-const Spaceman = styled.div`
+const fadeIn = keyframes`
+0% { opacity: 0; }
+100% { opacity: 1; }
+`
+const fadeOut = keyframes`
+100% { opacity: 1; width:100% }
+0% { opacity: 0; width:0% }
+`
+
+const Floating = styled.div`
 position: absolute;
 top: 10%;
 right: 5%;
 width: 20vw;
-animation: ${float} 4s ease infinite;
+cursor:pointer;
+animation: ${float} 4s ease infinite, ${fadeIn} 6s ease;
 img{
     width: 100%;
     height: auto;
 }
 `
-const Main =  styled.div`
+const FloatingDialogIn = styled.div`
+position: absolute;
+top: 0%;
+right: 10%;
+width: 20vw;
+animation: ${float} 4s ease infinite, ${fadeIn} 3s ease;
+img{
+    width: 60%;
+    height: auto;
+}
+`
+
+const FloatingDialogOut = styled.div`
+position: absolute;
+top: 0%;
+right: 10%;
+width: 20vw;
+animation: ${float} 4s ease infinite, ${fadeOut} 3s ease;
+img{
+    opacity: 0;
+    width: 0%;
+    height: auto;
+}
+`
+
+const Main =  styled(motion.div)`
   border: 2px solid ${(props) => props.theme.text};
   color: ${(props) => props.theme.text};
   padding: 2rem;
@@ -59,30 +95,61 @@ const Main =  styled.div`
 
 
 const AboutPage = () => {
+
+    const [imageClicked, setImageClicked] = useState(false);
+
+    const onClickHandler = () => {
+        setImageClicked(!imageClicked);
+      };
+
     return (
         <ThemeProvider theme={DarkTheme}>
-<Box>
+            <Box>
 
-<LogoComponent theme='dark'/>
-<SocialIcons theme='dark'/>
-<PowerButton />
-<ParticleComponent theme='dark' />
+                <LogoComponent theme='dark' />
+                <SocialIcons theme='dark' />
+                <ParticleComponent theme='dark' />
 
-        <Spaceman>
-            <img src={astronaut} alt="spaceman" />
-        </Spaceman>    
-        <Main>
-        I'm a front-end developer located in India. I love to create simple yet beautiful websites with great user experience.
-<br /> <br/>
-I'm interested in the whole frontend stack Like trying new things and building great projects. I'm an independent freelancer and blogger. I love to write blogs and read books.
-<br/> <br/>
-I believe everything is an Art when you put your consciousness in it. You can connect with me via social links.
-        </Main>
+                <Floating>
+                    <img src={issac} alt="Floating" onClick={()=>onClickHandler()}/>
+                </Floating>
+                <Main
+                    initial={{ height: 0 }}
+                    animate={{ height: '55vh' }}
+                    transition={{ type: 'spring', duration: 2, delay: 1 }}
+                >
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1, delay: 2 }}
+                    >
+                        Hi! I am Shashank Sanjay Betawar.
+                        <br /> <br />
+                        I’m a grad student at OSU and a Fullstack Developer. I specialize in creating user-friendly interfaces with React and developing powerful backends with Spring Boot.
+                        <br /> <br />
+                        Outside of coding, I’m passionate about video games, trekking, and reading. I enjoy bringing ideas to life and would love to connect with fellow tech enthusiasts.
+                        <br /> <br />
+                        Let’s talk tech or chat about universe!
+                        (Psst.! Don't forget me to tell your favorite videogame and/or book :))
+                    </motion.div>
+                </Main>
 
-        <BigTitle text="ABOUT" top="10%" left="5%" />
+                <BigTitle text="ABOUT" top="10%" left="5%" />
+                
+
+                {imageClicked ?
+                    <FloatingDialogIn>
+                        <img src={issacHi} />
+                    </FloatingDialogIn>
+                    : <FloatingDialogOut>
+                        <img src={issacHi} />
+                    </FloatingDialogOut>
+                }
+
+                
 
 
-        </Box>
+            </Box>
 
         </ThemeProvider>
         

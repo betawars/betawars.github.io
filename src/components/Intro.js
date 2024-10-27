@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import {motion} from 'framer-motion'
 import Me from '../assets/Images/profile-img.png'
 
@@ -66,8 +66,26 @@ justify-content: space-evenly;
 
 }
 
+`
 
+const float = keyframes`
+0% { transform: translateY(-10px) }
+50% { transform: translateY(15px) translateX(15px) }
+100% { transform: translateY(-10px) }
 
+`
+
+const Floating = styled.div`
+position: absolute;
+top: 100%;
+right: 0%;
+width: 100%;
+cursor:pointer;
+animation: ${float} 4s ease infinite;
+img{
+    width: 100%;
+    height: auto;
+}
 `
 
 const Intro = () => {
@@ -78,19 +96,28 @@ const Intro = () => {
         transition={{ type: 'spring', duration:2, delay:1 }}
         >
             <SubBox>
-                <Text>
-                    <h1>Hi,</h1>
-                    <h3>I'm CodeBucks.</h3>
-                    <h6>I design and Code simple yet beautiful websites.</h6>
-                </Text>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 2 }}
+                >
+                    <Text>
+                        <h1>Hi,</h1>
+                        <h3>I'm Shashank!</h3>
+                        <h6>I’m a Fullstack Developer and grad student at OSU. I love building intuitive UIs with React and solid backends with Spring Boot. I enjoy turning ideas into real products and staying updated with new tech. Let’s talk!</h6>
+                    </Text>
+                </motion.div>
             </SubBox>
             <SubBox>
                 <motion.div
                 initial={{opacity:0}}
-        animate={{opacity: 1}}
-        transition={{ duration:1, delay:2 }}
+                animate={{opacity: 1}}
+                transition={{ duration:1, delay:2 }}
                 >
-                    <img className="pic" src={Me} alt="Profile Pic" />
+                    <Floating>
+                        <img className="pic" src={Me} alt="Profile Pic" />
+                    </Floating>
+                    
                 </motion.div>
             </SubBox>
         </Box>
