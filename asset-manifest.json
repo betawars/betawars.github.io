@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/betawars_portfolio/static/css/main.58462fbc.css",
-    "main.js": "/betawars_portfolio/static/js/main.33cc253c.js",
-    "static/media/u-said-it-v13-1167.mp3": "/betawars_portfolio/static/media/u-said-it-v13-1167.becd66496be9c81ddf9d.mp3",
-    "static/media/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg": "/betawars_portfolio/static/media/patrick-tomasso-Oaqk7qqNh_c-unsplash.8ca90014fb6ce5980110.jpg",
-    "static/media/profile-img.png": "/betawars_portfolio/static/media/profile-img.e56e7bd9450f2de7fe47.png",
-    "static/media/issac.png": "/betawars_portfolio/static/media/issac.db5a291dbce230f3749f.png",
-    "static/media/issacHi.png": "/betawars_portfolio/static/media/issacHi.a77379753f819947665d.png",
-    "index.html": "/betawars_portfolio/index.html",
-    "main.58462fbc.css.map": "/betawars_portfolio/static/css/main.58462fbc.css.map",
-    "main.33cc253c.js.map": "/betawars_portfolio/static/js/main.33cc253c.js.map"
+    "main.css": "/static/css/main.58462fbc.css",
+    "main.js": "/static/js/main.bc059aa3.js",
+    "static/media/u-said-it-v13-1167.mp3": "/static/media/u-said-it-v13-1167.becd66496be9c81ddf9d.mp3",
+    "static/media/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg": "/static/media/patrick-tomasso-Oaqk7qqNh_c-unsplash.8ca90014fb6ce5980110.jpg",
+    "static/media/profile-img.png": "/static/media/profile-img.e56e7bd9450f2de7fe47.png",
+    "static/media/issac.png": "/static/media/issac.db5a291dbce230f3749f.png",
+    "static/media/issacHi.png": "/static/media/issacHi.a77379753f819947665d.png",
+    "index.html": "/index.html",
+    "main.58462fbc.css.map": "/static/css/main.58462fbc.css.map",
+    "main.bc059aa3.js.map": "/static/js/main.bc059aa3.js.map"
   },
   "entrypoints": [
     "static/css/main.58462fbc.css",
-    "static/js/main.33cc253c.js"
+    "static/js/main.bc059aa3.js"
   ]
 }
