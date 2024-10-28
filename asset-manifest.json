@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/betawars_portfolio/static/css/main.58462fbc.css",
-    "main.js": "/betawars_portfolio/static/js/main.f5a4bbb2.js",
+    "main.js": "/betawars_portfolio/static/js/main.33cc253c.js",
     "static/media/u-said-it-v13-1167.mp3": "/betawars_portfolio/static/media/u-said-it-v13-1167.becd66496be9c81ddf9d.mp3",
     "static/media/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg": "/betawars_portfolio/static/media/patrick-tomasso-Oaqk7qqNh_c-unsplash.8ca90014fb6ce5980110.jpg",
     "static/media/profile-img.png": "/betawars_portfolio/static/media/profile-img.e56e7bd9450f2de7fe47.png",
@@ -9,10 +9,10 @@
     "static/media/issacHi.png": "/betawars_portfolio/static/media/issacHi.a77379753f819947665d.png",
     "index.html": "/betawars_portfolio/index.html",
     "main.58462fbc.css.map": "/betawars_portfolio/static/css/main.58462fbc.css.map",
-    "main.f5a4bbb2.js.map": "/betawars_portfolio/static/js/main.f5a4bbb2.js.map"
+    "main.33cc253c.js.map": "/betawars_portfolio/static/js/main.33cc253c.js.map"
   },
   "entrypoints": [
     "static/css/main.58462fbc.css",
-    "static/js/main.f5a4bbb2.js"
+    "static/js/main.33cc253c.js"
   ]
 }
