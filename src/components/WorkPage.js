@@ -10,6 +10,7 @@ import { Work } from "../data/WorkData";
 import Card from "../subComponents/Card";
 import { YinYang } from "./AllSvgs";
 import BigTitlte from "../subComponents/BigTitlte";
+import { NavLink } from "react-router-dom";
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -38,6 +39,28 @@ const Rotate = styled.span`
   height: 80px;
   z-index: 1;
 `;
+
+const ABOUT = styled(NavLink)`
+color: ${props => props.theme.text};
+
+position: absolute;
+top: 50%;
+left: calc(1rem + 2vw);
+transform: translate(-50%, -50%) rotate(-90deg) ;
+text-decoration: none;
+z-index:1;
+`
+
+const SKILLS = styled(NavLink)`
+color: ${props => props.theme.text};
+
+position: absolute;
+top: 30%;
+left: calc(1rem + 2vw);
+transform: translate(-50%, -50%) rotate(-90deg) ;
+text-decoration: none;
+z-index:1;
+`
 
 // Framer-motion Configuration
 const container = {
@@ -74,18 +97,48 @@ const WorkPage = () => {
 
   return (
     <ThemeProvider theme={DarkTheme}>
+      <SKILLS to="/skills">
+        <motion.h2
+          initial={{
+            y: -200,
+            transition: { type: 'spring', duration: 1.5, delay: 1 }
+          }}
+          animate={{
+            y: 0,
+            transition: { type: 'spring', duration: 1.5, delay: 1 }
+          }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          My Skills.
+        </motion.h2>
+      </SKILLS>
+
+      <ABOUT to="/about">
+        <motion.h2
+          initial={{
+            y: -200,
+            transition: { type: 'spring', duration: 1.5, delay: 1 }
+          }}
+          animate={{
+            y: 0,
+            transition: { type: 'spring', duration: 1.5, delay: 1 }
+          }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          About.
+        </motion.h2>
+      </ABOUT>
+
       <Box>
         <LogoComponent theme="dark" />
         <SocialIcons theme="dark" />
-
         <Main ref={ref} variants={container} initial="hidden" animate="show">
           {Work.map((d) => (
             <Card key={d.id} data={d} />
           ))}
         </Main>
-        {/* <Rotate ref={yinyang}>
-          <YinYang width={80} height={80} fill={DarkTheme.text} />
-        </Rotate> */}
 
         <BigTitlte text="WORK" top="10%" right="20%" />
       </Box>

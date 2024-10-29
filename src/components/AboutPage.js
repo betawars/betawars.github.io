@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled, { keyframes, ThemeProvider } from 'styled-components'
+import { NavLink } from 'react-router-dom'
 import {DarkTheme} from './Themes';
 import {motion} from 'framer-motion'
 
@@ -90,7 +91,27 @@ const Main =  styled(motion.div)`
   font-family: 'Ubuntu Mono', monospace;
   font-style: italic;
 `
+const WORK = styled(NavLink)`
+color: ${props => props.theme.text};
 
+position: absolute;
+top: 50%;
+left: calc(1rem + 2vw);
+transform: translate(-50%, -50%) rotate(-90deg) ;
+text-decoration: none;
+z-index:1;
+`
+
+const SKILLS = styled(NavLink)`
+color: ${props => props.theme.text};
+
+position: absolute;
+top: 30%;
+left: calc(1rem + 2vw);
+transform: translate(-50%, -50%) rotate(-90deg) ;
+text-decoration: none;
+z-index:1;
+`
 
 
 
@@ -104,11 +125,48 @@ const AboutPage = () => {
 
     return (
         <ThemeProvider theme={DarkTheme}>
+
+
+            {/* <SKILLS to="/skills">
+                <motion.h2
+                initial={{
+                    y:-200,
+                    transition: { type:'spring', duration: 1.5, delay:1}
+                }}
+                animate={{
+                    y:0,
+                    transition: { type:'spring', duration: 1.5, delay:1}
+                }}
+                whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.9}}
+                >
+                    My Skills.
+                </motion.h2>
+            </SKILLS>
+
+
+            <WORK to="/work">
+                <motion.h2
+                    initial={{
+                        y: -200,
+                        transition: { type: 'spring', duration: 1.5, delay: 1 }
+                    }}
+                    animate={{
+                        y: 0,
+                        transition: { type: 'spring', duration: 1.5, delay: 1 }
+                    }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                >
+                    Work
+                </motion.h2>
+            </WORK> */}
+
             <Box>
 
                 <LogoComponent theme='dark' />
                 <SocialIcons theme='dark' />
-                <ParticleComponent theme='dark' />
+                <ParticleComponent theme='light' />
 
                 <Floating>
                     <img src={issac} alt="Floating" onClick={()=>onClickHandler()}/>
