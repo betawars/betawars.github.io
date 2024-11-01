@@ -55,6 +55,25 @@ export const Twitter = (props) => {
       )
 }
 
+export const LinkedIn = (props) => {
+  return (
+      <svg
+        aria-hidden="true"
+        data-prefix="fab"
+        data-icon="linkedin"
+        className="prefix__svg-inline--fa prefix__fa-linkedin prefix__fa-w-16"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
+        {...props}
+      >
+        <path
+          fill={props.fill}
+          d="M100.28 480H7.4V165.65h92.88V480zm-46.44-362.35c-29.98 0-54.32-24.34-54.32-54.32 0-29.98 24.34-54.32 54.32-54.32 29.99 0 54.32 24.34 54.32 54.32 0 29.98-24.33 54.32-54.32 54.32zm388.56 362.35h-92.88V327.74c0-36.49-13.01-61.37-45.56-61.37-24.84 0-39.66 16.73-46.13 32.95-2.37 5.72-2.95 13.65-2.95 21.49V480h-92.88s1.21-223.57 0-246.14h92.88v34.88c-0.18.27-0.4.56-0.63.85h0c12.33-19.01 34.29-46.14 83.32-46.14 61.04 0 106.93 39.87 106.93 125.04V480z"
+        />
+      </svg>
+  );
+};
+
 export const Facebook = (props) => {
     return (
         <svg

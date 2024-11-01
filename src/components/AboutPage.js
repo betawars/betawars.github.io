@@ -83,7 +83,7 @@ const Main =  styled(motion.div)`
   justify-content: center;
   align-items: center;
   font-size: calc(0.6rem + 1vw);
- backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   
   position: absolute;
   left: calc(5rem + 5vw);

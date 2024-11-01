@@ -1,5 +1,35 @@
 // work data
 
+import javascript from '../assets/Images/javascript.png'
+import sql from '../assets/Images/sql.png'
+import java from '../assets/Images/java.png'
+import python from '../assets/Images/python.png'
+import kotlin from '../assets/Images/kotlin.png'
+import react from '../assets/Images/react.png'
+import angular from '../assets/Images/angular.png'
+import html from '../assets/Images/html.png'
+import css from '../assets/Images/css.png'
+import restapi from '../assets/Images/restapi.png'
+import springboot from '../assets/Images/springboot.png'
+import androidstudio from '../assets/Images/androidstudio.png'
+
+
+export const cards = [
+    { img: javascript, content: 'Javascript', link:'https://en.wikipedia.org/wiki/JavaScript' },
+    { img: sql, content: 'SQL', link:'https://en.wikipedia.org/wiki/SQL'  },
+    { img: java, content: 'JAVA', link:'https://en.wikipedia.org/wiki/Java_(programming_language)'  },
+    { img: python, content: 'Python', link:'https://en.wikipedia.org/wiki/Python_(programming_language)'  },
+    { img: kotlin, content: 'Kotlin', link:'https://en.wikipedia.org/wiki/Kotlin_(programming_language)'  },
+    { img: react, content: 'React', link:'https://en.wikipedia.org/wiki/React_(JavaScript_library)'  },
+    { img: angular, content: 'Angular', link:'https://en.wikipedia.org/wiki/Angular_(web_framework)'  },
+    { img: html, content: 'HTML', link:'https://en.wikipedia.org/wiki/HTML5'  },
+    { img: css, content: 'CSS', link:'https://en.wikipedia.org/wiki/CSS'  },
+    { img: restapi, content: 'Rest APIs', link:'https://en.wikipedia.org/wiki/REST'  },
+    { img: springboot, content: 'Spring boot', link:'https://en.wikipedia.org/wiki/Spring_Boot'  },
+    { img: androidstudio, content: 'Android Studio', link:'https://en.wikipedia.org/wiki/Android_Studio'  },
+    
+];
+
 export const Work = [
     {
         id:1,

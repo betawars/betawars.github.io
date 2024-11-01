@@ -37,17 +37,11 @@ width:100%
 }
 `
 
-const handleClick = () => {
-  return(
-    <NavLink to="/">
-    </NavLink>
-  )
-}
 
 const LogoComponent = (props) => {
     return (
       <NavLink to="/">
-        <Logo color={props.theme} onClick={() => handleClick()}>
+        <Logo color={props.theme}>
           SSB
         </Logo>
       </NavLink>    

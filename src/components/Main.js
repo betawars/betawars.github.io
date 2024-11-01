@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 import LogoComponent from '../subComponents/LogoComponent'
 import SocialIcons from '../subComponents/SocialIcons'
-import { YinYang } from './AllSvgs'
 import Intro from './Intro'
 ;
+import ContactForm from '../subComponents/Contactform'
 
 
 const MainContainer = styled.div`
@@ -27,7 +27,7 @@ const Container = styled.div`
 padding: 2rem;
 `
 
-const Contact = styled.a`
+const Contact = styled.p`
 color: ${props => props.theme.text};
 position: absolute;
 top: 2rem;
@@ -67,7 +67,7 @@ justify-content: space-evenly;
 `
 
 const ABOUT = styled(NavLink)`
-color: ${props => props.click ? "#000" : props.theme.text};
+color: ${props => props.click ? props.theme.body : props.theme.text};
 text-decoration: none;
 z-index:1;
 `
@@ -128,22 +128,26 @@ transition: height 0.5s ease, width 1s ease 0.5s;
 const Main = () => {
 
     const [click, setClick] = useState(false);
+    const [formClick, setFormClick] = useState(false);
 
     const handleClick = () => setClick(!click);
+    const handleFormClick = () => setFormClick(!formClick)
 
     return (
         <MainContainer>
+            
+            
          <DarkDiv   click={props => props.click}/>
+            
             <Container>
+            {
+                formClick ?
+                    <ContactForm /> : ""
+            }
             <LogoComponent theme={!click ? 'dark' :'light'}/>
             <SocialIcons theme={!click ? 'dark' :'light'} />
-           
-            {/* <Center click={click}>
-                <YinYang  onClick={()=> handleClick()} width={click ? 120 : 200} height={click ? 120 : 200} fill='currentColor' />
-                <span>click here</span>
-            </Center> */}
-
-            <Contact target="_blank" href="mailto:betawars@oregonstate.edu">
+            {/* target="_blank" href="mailto:betawars@oregonstate.edu" */}
+            <Contact onClick={handleFormClick}>
                 <motion.h2
                 initial={{
                     y:-200,
@@ -209,7 +213,7 @@ const Main = () => {
                     About.
                 </motion.h2>
             </ABOUT>
-            {/* <SKILLS to="/skills">
+            <SKILLS to="/skills">
                 <motion.h2
                 initial={{
                     y:200,
@@ -224,12 +228,13 @@ const Main = () => {
                 >
                     My Skills.
                 </motion.h2>
-            </SKILLS> */}
+            </SKILLS>
 
             </BottomBar>
 
             </Container>
             <Intro/>
+            
             {/* {click ? <Intro click={click} /> : null } */}
         </MainContainer>
     )

@@ -8,6 +8,8 @@ import LogoComponent from '../subComponents/LogoComponent';
 import SocialIcons from '../subComponents/SocialIcons';
 import ParticleComponent from '../subComponents/ParticleComponent';
 import BigTitle from '../subComponents/BigTitlte'
+import SkillCards from '../subComponents/SkillCards';
+import { motion } from 'framer-motion';
 
 const Box = styled.div`
 background-color: ${props => props.theme.body};
@@ -21,39 +23,30 @@ align-items: center;
 
 `
 
-const Main = styled.div`
+const Main = styled(motion.div)`
 border: 2px solid ${props => props.theme.text};
 color: ${props => props.theme.text};
-background-color: ${props => props.theme.body};
 padding: 2rem;
-width: 30vw;
-height: 60vh;
+width: 75vw;
+height: 70vh;
 z-index:3;
 line-height: 1.5;
-cursor: pointer;
+backdrop-filter: blur(4px);
+margin-right:5vw;
 
 font-family: 'Ubuntu Mono',monospace;
 display: flex;
-flex-direction: column;
 justify-content: space-between;
+align-items: center;
 
-&:hover{
-    color: ${props => props.theme.body};
-    background-color: ${props => props.theme.text};
-}
 `
 
 const Title = styled.h2`
+padding-left: 2vw;
 display: flex;
 justify-content: center;
 align-items: center;
 font-size: calc(1em + 1vw);
-
-${Main}:hover &{
-    &>*{
-        fill:${props => props.theme.body};
-    }
-}
 
 &>*:first-child{
 margin-right: 1rem;
@@ -66,12 +59,6 @@ font-size: calc(0.6em + 1vw);
 padding: 0.5rem 0;
 
 
-${Main}:hover &{
-   
-        color:${props => props.theme.body};
-    
-}
-
 strong{
     margin-bottom: 1rem;
     text-transform: uppercase;
@@ -82,6 +69,13 @@ ul,p{
 `
 
 const MySkillsPage = () => {
+
+    const innerDivStyle = {
+        display: "flex",
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    }
+
     return (
         <ThemeProvider theme={DarkTheme}>
             <Box>
@@ -89,11 +83,23 @@ const MySkillsPage = () => {
                 <LogoComponent theme='dark' />
                 <SocialIcons theme='dark' />
                 <ParticleComponent theme='light' />
-                <Main>
-                    <Title>
-                        <Design width={40} height={40} /> Designer
-                    </Title>
-                    <Description>
+                <Main
+                    initial={{ height: 0 }}
+                    animate={{ height: '55vh' }}
+                    transition={{ type: 'spring', duration: 2, delay: 1 }}
+                >
+
+                    <motion.div
+                        style={innerDivStyle}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1, delay: 2 }}
+                    >
+                        <Title>
+                            Click to learn more about them
+                        </Title>
+                        <SkillCards />
+                        {/* <Description>
                         I love to create design which speaks, Keep it clean, minimal and simple.
                     </Description>
                     <Description>
@@ -136,11 +142,15 @@ const MySkillsPage = () => {
                         <p>
                             VScode, Github, Codepen etc.
                         </p>
-                    </Description>
+                    </Description> */}
+
+
+                    </motion.div>
+                    <BigTitle text="SKILLS" top="80%" right="10%" />
 
                 </Main>
 
-                <BigTitle text="SKILLS" top="80%" right="30%" />
+                
 
             </Box>
 
