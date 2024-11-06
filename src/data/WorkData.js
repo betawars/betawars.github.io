@@ -13,20 +13,33 @@ import restapi from '../assets/Images/restapi.png'
 import springboot from '../assets/Images/springboot.png'
 import androidstudio from '../assets/Images/androidstudio.png'
 
+import javascript1 from '../assets/Images/javascript1.png'
+import sql1 from '../assets/Images/sql1.png'
+import java1 from '../assets/Images/java1.png'
+import python1 from '../assets/Images/python1.png'
+import kotlin1 from '../assets/Images/kotlin1.png'
+import react1 from '../assets/Images/react1.png'
+import angular1 from '../assets/Images/angular1.png'
+import html1 from '../assets/Images/html1.png'
+import css1 from '../assets/Images/css1.png'
+import restapi1 from '../assets/Images/restapi1.png'
+import springboot1 from '../assets/Images/springboot1.png'
+import androidstudio1 from '../assets/Images/androidstudio1.png'
+
 
 export const cards = [
-    { img: javascript, content: 'Javascript', link:'https://en.wikipedia.org/wiki/JavaScript' },
-    { img: sql, content: 'SQL', link:'https://en.wikipedia.org/wiki/SQL'  },
-    { img: java, content: 'JAVA', link:'https://en.wikipedia.org/wiki/Java_(programming_language)'  },
-    { img: python, content: 'Python', link:'https://en.wikipedia.org/wiki/Python_(programming_language)'  },
-    { img: kotlin, content: 'Kotlin', link:'https://en.wikipedia.org/wiki/Kotlin_(programming_language)'  },
-    { img: react, content: 'React', link:'https://en.wikipedia.org/wiki/React_(JavaScript_library)'  },
-    { img: angular, content: 'Angular', link:'https://en.wikipedia.org/wiki/Angular_(web_framework)'  },
-    { img: html, content: 'HTML', link:'https://en.wikipedia.org/wiki/HTML5'  },
-    { img: css, content: 'CSS', link:'https://en.wikipedia.org/wiki/CSS'  },
-    { img: restapi, content: 'Rest APIs', link:'https://en.wikipedia.org/wiki/REST'  },
-    { img: springboot, content: 'Spring boot', link:'https://en.wikipedia.org/wiki/Spring_Boot'  },
-    { img: androidstudio, content: 'Android Studio', link:'https://en.wikipedia.org/wiki/Android_Studio'  },
+    { img: javascript, img1:javascript1,  content: 'Javascript', link:'https://en.wikipedia.org/wiki/JavaScript' },
+    { img: sql, img1: sql1, content: 'SQL', link:'https://en.wikipedia.org/wiki/SQL'  },
+    { img: java, img1: java1, content: 'JAVA', link:'https://en.wikipedia.org/wiki/Java_(programming_language)'  },
+    { img: python, img1: python1, content: 'Python', link:'https://en.wikipedia.org/wiki/Python_(programming_language)'  },
+    { img: kotlin, img1: kotlin1, content: 'Kotlin', link:'https://en.wikipedia.org/wiki/Kotlin_(programming_language)'  },
+    { img: react, img1: react1, content: 'React', link:'https://en.wikipedia.org/wiki/React_(JavaScript_library)'  },
+    { img: angular, img1: angular1, content: 'Angular', link:'https://en.wikipedia.org/wiki/Angular_(web_framework)'  },
+    { img: html, img1: html1, content: 'HTML', link:'https://en.wikipedia.org/wiki/HTML5'  },
+    { img: css, img1: css1, content: 'CSS', link:'https://en.wikipedia.org/wiki/CSS'  },
+    { img: restapi, img1: restapi1, content: 'Rest APIs', link:'https://en.wikipedia.org/wiki/REST'  },
+    { img: springboot, img1: springboot1, content: 'Spring boot', link:'https://en.wikipedia.org/wiki/Spring_Boot'  },
+    { img: androidstudio, img1: androidstudio1, content: 'Android Studio', link:'https://en.wikipedia.org/wiki/Android_Studio'  },
     
 ];
 

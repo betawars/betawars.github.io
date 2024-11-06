@@ -36,6 +36,59 @@ export const Github = (props) => {
       )
 }
 
+export const ColorIcon = (props) => {
+  return (
+    <svg
+      id="svg"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      width={props.width || "400"} // Optional width prop
+      height={props.height || "400"} // Optional height prop
+      viewBox="0 0 400 400" // Keep viewBox as it is from the original SVG
+      {...props} // Pass down any additional props like fill, className, etc.
+    >
+      <g id="svgg">
+        <path
+          id="path0"
+          d={props.path0} // You can provide custom d values if needed
+          stroke="none"
+          fill={props.fill0 || "#040404"} // Default fill for path0
+          fillRule="evenodd"
+        ></path>
+        <path
+          id="path1"
+          d={props.path1} // Customizable path
+          stroke="none"
+          fill={props.fill1 || "#080404"} // Default fill for path1
+          fillRule="evenodd"
+        ></path>
+        <path
+          id="path2"
+          d={props.path2} // Customizable path
+          stroke="none"
+          fill={props.fill2 || "#080404"} // Default fill for path2
+          fillRule="evenodd"
+        ></path>
+        <path
+          id="path3"
+          d={props.path3} // Customizable path
+          stroke="none"
+          fill={props.fill3 || "#080404"} // Default fill for path3
+          fillRule="evenodd"
+        ></path>
+        <path
+          id="path4"
+          d={props.path4} // Customizable path
+          stroke="none"
+          fill={props.fill4 || "#080404"} // Default fill for path4
+          fillRule="evenodd"
+        ></path>
+      </g>
+    </svg>
+  );
+};
+
 export const Twitter = (props) => {
     return (
         <svg
