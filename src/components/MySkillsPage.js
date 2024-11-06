@@ -1,8 +1,8 @@
-import React from 'react'
-import styled, { ThemeProvider } from 'styled-components'
+import React, { useState } from 'react'
+import styledd, { ThemeProvider } from 'styled-components'
 import { DarkTheme, lightTheme } from './Themes';
-import { Design, Develope } from './AllSvgs';
 
+import { styled } from '@mui/material/styles';
 
 import LogoComponent from '../subComponents/LogoComponent';
 import SocialIcons from '../subComponents/SocialIcons';
@@ -11,8 +11,104 @@ import BigTitle from '../subComponents/BigTitlte'
 import SkillCards from '../subComponents/SkillCards';
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
+import { Switch } from '@mui/material';
 
-const Box = styled.div`
+
+const color = `<svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400" viewBox="0, 0, 400,400"><g id="svgg"><path id="path0" d="" stroke="none" fill="#040404" fill-rule="evenodd"></path><path id="path1" d="" stroke="none" fill="#080404" fill-rule="evenodd"></path><path id="path2" d="" stroke="none" fill="#080404" fill-rule="evenodd"></path><path id="path3" d="" stroke="none" fill="#080404" fill-rule="evenodd"></path><path id="path4" d="" stroke="none" fill="#080404" fill-rule="evenodd"></path></g></svg>`;
+const encodedColorSvg = encodeURIComponent(color);
+const backgroundColorImage = `url('data:image/svg+xml;utf8,${encodedColorSvg}')`;
+
+const monochrome = `<svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400" viewBox="0, 0, 400,400"><g id="svgg"><path id="path0" d="" stroke="none" fill="#040404" fill-rule="evenodd"></path><path id="path1" d="" stroke="none" fill="#080404" fill-rule="evenodd"></path><path id="path2" d="" stroke="none" fill="#080404" fill-rule="evenodd"></path><path id="path3" d="" stroke="none" fill="#080404" fill-rule="evenodd"></path><path id="path4" d="" stroke="none" fill="#080404" fill-rule="evenodd"></path></g></svg>`;
+const encodedMonochromeSvg = encodeURIComponent(monochrome);
+const backgroundMonochromeImage = `url('data:image/svg+xml;utf8,${encodedMonochromeSvg}')`;
+
+const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+    width: 62,
+    height: 34,
+    padding: 7,
+    '& .MuiSwitch-switchBase': {
+      margin: 1,
+      padding: 0,
+      transform: 'translateX(6px)',
+      '&.Mui-checked': {
+        color: '#fff',
+        transform: 'translateX(22px)',
+        '& .MuiSwitch-thumb:before': {
+          backgroundImage: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cGF0aCBkPSJNNDg0IDAgNDEyIDAgMzUyIDYwIE0xMjggMzY4TDQ0IDQ0OEw2NCA1MTJMMTQ0IDQ2OE0xMjggMzY4TDQ0IDQ0OEw2NCA1MTJMMTQ0IDQ2OCIvPgo8L3N2Zz4=",
+        },
+        '& + .MuiSwitch-track': {
+          opacity: 1,
+          backgroundColor: '#aab4be',
+          ...theme.applyStyles('dark', {
+            backgroundColor: '#8796A5',
+          }),
+        },
+      },
+    },
+    '& .MuiSwitch-thumb': {
+      backgroundColor: '#001e3c',
+      width: 32,
+      height: 32,
+      '&::before': {
+        content: "''",
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        left: 0,
+        top: 0,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundImage: backgroundColorImage,
+      },
+      ...theme.applyStyles('dark', {
+        backgroundColor: '#003892',
+      }),
+    },
+    '& .MuiSwitch-track': {
+      opacity: 1,
+      backgroundColor: '#aab4be',
+      borderRadius: 20 / 2,
+      ...theme.applyStyles('dark', {
+        backgroundColor: '#8796A5',
+      }),
+    },
+  }));
+
+
+
+
+const Logo = styledd.h4`
+display: inline-block;
+color: ${DarkTheme.text};
+cursor: default;
+position: fixed;
+right: 3rem;
+top: 2rem;
+z-index: 1;
+transform: scale(1);
+// transition: transform 0.5s ease-in-out;
+// &::after {
+//   content: '';
+//   position: absolute;
+//   height: 2px;
+//   left: 0;
+//   bottom: 0;
+//   width: 0;
+//   background: white;
+//   transition: width 0.2s;
+// }
+// &:hover::after {
+//   width: 100%;
+// }
+// &:hover {
+//   transform: scale(1.2);
+// }
+// &:active { 
+//   transform: scale(0.8); 
+// }
+`
+
+const Box = styledd.div`
 background-color: ${props => props.theme.body};
 width: 100vw;
 height:100vh;
@@ -24,7 +120,7 @@ align-items: center;
 
 `
 
-const Main = styled(motion.div)`
+const Main = styledd(motion.div)`
 border: 2px solid ${props => props.theme.text};
 color: ${props => props.theme.text};
 padding: 2rem;
@@ -33,16 +129,13 @@ height: 70vh;
 z-index:3;
 line-height: 1.5;
 backdrop-filter: blur(4px);
-margin-right:5vw;
-
+margin-right:4vw;
 font-family: 'Ubuntu Mono',monospace;
 display: flex;
-justify-content: space-between;
-align-items: center;
 
 `
 
-const Title = styled.h2`
+const Title = styledd.h2`
 padding-left: 2vw;
 display: flex;
 justify-content: center;
@@ -54,7 +147,7 @@ margin-right: 1rem;
 }
 `
 
-const ABOUT = styled(NavLink)`
+const ABOUT = styledd(NavLink)`
 color: ${props => props.theme.text};
 
 position: absolute;
@@ -65,7 +158,7 @@ text-decoration: none;
 z-index:1;
 `
 
-const Description = styled.div`
+const Description = styledd.div`
 color: ${props => props.theme.text};
 font-size: calc(0.6em + 1vw);
 padding: 0.5rem 0;
@@ -80,7 +173,7 @@ ul,p{
 }
 `
 
-const WORK = styled(NavLink)`
+const WORK = styledd(NavLink)`
 color: ${props => props.click ? props.theme.body : props.theme.text};
 
 position: absolute;
@@ -93,52 +186,59 @@ z-index:1;
 
 const MySkillsPage = () => {
 
+    const [ iconTheme, setIconTheme ] = useState(false);
+
+    const handleIconSwitch = () => setIconTheme(!iconTheme)
     const innerDivStyle = {
         display: "flex",
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
         alignItems: 'center'
     }
 
     return (
         <ThemeProvider theme={DarkTheme}>
 
-<WORK to="/work">
+            <WORK to="/work">
                 <motion.h2
-                initial={{
-                    y:-200,
-                    transition: { type:'spring', duration: 1.5, delay:1}
-                }}
-                animate={{
-                    y:0,
-                    transition: { type:'spring', duration: 1.5, delay:1}
-                }}
-                 whileHover={{scale: 1.1}}
-                whileTap={{scale: 0.9}}
+                    initial={{
+                        y: -200,
+                        transition: { type: 'spring', duration: 1.5, delay: 1 }
+                    }}
+                    animate={{
+                        y: 0,
+                        transition: { type: 'spring', duration: 1.5, delay: 1 }
+                    }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
                 >
                     Work.
                 </motion.h2>
             </WORK>
 
-<ABOUT to="/about">
-        <motion.h2
-          initial={{
-            y: -200,
-            transition: { type: 'spring', duration: 1.5, delay: 1 }
-          }}
-          animate={{
-            y: 0,
-            transition: { type: 'spring', duration: 1.5, delay: 1 }
-          }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          About.
-        </motion.h2>
-      </ABOUT>
+            <ABOUT to="/about">
+                <motion.h2
+                    initial={{
+                        y: -200,
+                        transition: { type: 'spring', duration: 1.5, delay: 1 }
+                    }}
+                    animate={{
+                        y: 0,
+                        transition: { type: 'spring', duration: 1.5, delay: 1 }
+                    }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                >
+                    About.
+                </motion.h2>
+            </ABOUT>
 
             <Box>
 
                 <LogoComponent theme='dark' />
+                <Logo >
+                    Switch Icons:
+                    <MaterialUISwitch onChange={handleIconSwitch} />
+                </Logo>
                 <SocialIcons theme='dark' />
                 <ParticleComponent theme='light' />
                 <Main
@@ -156,8 +256,8 @@ const MySkillsPage = () => {
                         <Title>
                             Click to learn more about them
                         </Title>
-                        <SkillCards />
-                        
+                        <SkillCards iconTheme={iconTheme}/>
+
 
 
                     </motion.div>
@@ -165,7 +265,7 @@ const MySkillsPage = () => {
 
                 </Main>
 
-                
+
 
             </Box>
 

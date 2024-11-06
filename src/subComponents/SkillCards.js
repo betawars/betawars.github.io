@@ -33,7 +33,7 @@ const SkillCards = (props) => {
                     <CardMedia
                       component="img"
                       height="auto" // Set a fixed height
-                      image={card.img}
+                      image={props.iconTheme?card.img:card.img1}
                       alt="skill"
                       sx={{ objectFit: "contain" }}
                     />
