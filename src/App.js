@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme } from "./components/Themes";
 import { AnimatePresence } from "framer-motion";
 import GlobalStyle from "./globalStyles";
+import emailjs from '@emailjs/browser';
 
 //Components
 import Main from "./components/Main";
@@ -10,22 +11,20 @@ import AboutPage from "./components/AboutPage";
 import BlogPage from "./components/BlogPage";
 import WorkPage from "./components/WorkPage";
 import MySkillsPage from "./components/MySkillsPage";
-import SoundBar from "./subComponents/SoundBar";
+import { useEffect } from "react";
 
 function App() {
   const location = useLocation();
+  useEffect(() => emailjs.init("qF0ZSkp-SRC-nsEEh"), []);
   return (
     <>
       <GlobalStyle />
 
       <ThemeProvider theme={lightTheme}>
-        {/* <SoundBar /> */}
 
         <AnimatePresence mode='wait'>
-          {/* Changed Switch to Routes */}
 
           <Routes key={location.pathname} location={location} >
-            {/* Changed component to element */}
 
             <Route path="/" element={<Main />} />
 
@@ -36,8 +35,7 @@ function App() {
             <Route path="/work" element={<WorkPage />} />
 
             <Route path="/skills" element={<MySkillsPage />} />
-            {/* Below is to catch all the other routes and send the user to main component,
-you can add custom 404 component or message instead of Main component*/}
+
             <Route path="*" element={<Main click={true} />} />
           </Routes>
         </AnimatePresence>

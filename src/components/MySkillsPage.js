@@ -115,7 +115,7 @@ const MySkillsPage = () => {
                  whileHover={{scale: 1.1}}
                 whileTap={{scale: 0.9}}
                 >
-                    Work
+                    Work.
                 </motion.h2>
             </WORK>
 
@@ -132,7 +132,7 @@ const MySkillsPage = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          About
+          About.
         </motion.h2>
       </ABOUT>
 

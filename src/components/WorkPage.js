@@ -14,7 +14,7 @@ import { NavLink } from "react-router-dom";
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
 
-  height: 200vh;
+  height: 250vh;
   position: relative;
   display: flex;
   align-items: center;
@@ -74,9 +74,6 @@ const WorkPage = () => {
 
     const rotate = () => {
       element.style.transform = `translateX(${-window.scrollY}px)`;
-
-      // return (scroll.current.style.transform =
-      //   "rotate(" + -window.scrollY + "deg)");
     };
 
     window.addEventListener("scroll", rotate);
@@ -100,7 +97,7 @@ const WorkPage = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          My Skills
+          My Skills.
         </motion.h2>
       </SKILLS>
 
@@ -117,7 +114,7 @@ const WorkPage = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          About
+          About.
         </motion.h2>
       </ABOUT>
 

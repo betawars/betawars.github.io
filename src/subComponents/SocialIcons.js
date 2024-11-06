@@ -14,7 +14,7 @@ const Icons = styled.div`
   bottom: 0;
   left: 2rem;
 
-  z-index: 3;
+  z-index: 1;
 
   & > *:not(:last-child) {
     margin: 0.5rem 0;
@@ -39,6 +39,7 @@ const SocialIcons = (props) => {
       >
         <motion.div
           whileHover={{ scale: 1.3 }}
+          whileTap={{ scale: 0.9 }}
         >
           <a
             style={{color:"inherit"}}
@@ -61,6 +62,8 @@ const SocialIcons = (props) => {
       >
         <motion.div
           whileHover={{ scale: 1.3 }}
+          
+          whileTap={{ scale: 0.9 }}
         >
           <a
             style={{ color: "inherit" }}
