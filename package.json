@@ -4,12 +4,16 @@
   "version": "2.0",
   "private": true,
   "dependencies": {
+    "@chakra-ui/react": "^3.0.2",
+    "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@mui/material": "^6.1.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
+    "bootstrap": "^5.3.3",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^7.6.19",
     "locomotive-scroll": "^4.1.4",
     "normalize.css": "^8.0.1",
@@ -49,6 +53,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.2.0"
+    "gh-pages": "^6.2.0",
+    "sass": "^1.80.6"
   }
 }

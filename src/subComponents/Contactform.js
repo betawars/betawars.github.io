@@ -1,239 +1,416 @@
-import { Container } from "@mui/material";
-import React, { useState } from "react";
-import styled, { keyframes } from "styled-components";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from "@mui/material";
+import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import emailjs from '@emailjs/browser';
+import loadingGif from "../assets/Images/loading.gif"
 
-const move = keyframes`
-0%{
-    opacity:0;
-
-}
-95%{
-    opacity:1;
-
-}
-
-`;
-const BackgroundBox = styled.div`
-  background-color: #beeefb;
-  height: 50vh;
-  width: 50%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  margin: 15rem auto;
-
-  position: relative;
-  border-radius: 23px;
-  border: 1px solid #053271;
-
-
-  }
-`;
-
-const Box1 = styled.div`
-  background-color: #f1fdcd;
-  width: 50%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-
-  transform: ${(props) =>
-    props.clicked ? "translateX(90%)" : "translateX(10%)"};
-
-  transition: transform 1s;
-
-  &::after,
-  &::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #f1fdcd;
-
-    z-index: -200;
-  }
-
-  &::before {
-    top: 3rem;
-    border-radius: 23px;
-    border: 4px solid #053271;
-  }
-
-  &::after {
-    bottom: 3rem;
-    border-radius: 23px 23px 0 0;
-    border-top: 4px solid #053271;
-    border-right: 4px solid #053271;
-    border-left: 4px solid #053271;
-  }
-`;
-
-const Box2 = styled.div`
-  background-color: #053271;
-  width: 45%;
-  height: 100%;
-  position: absolute;
-  right: 0;
-  top: 0;
-
-  z-index: 600;
-  transform: ${(props) =>
-    props.clicked ? "translateX(-122%)" : "translateX(0%)"};
-  transition: transform 1s;
-
-  border-radius: ${(props) =>
-    props.clicked ? "23px 0 0 23px" : "0 23px 23px 0"};
-`;
-
-const Form = styled.form`
-  color: #1b1b1b;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: 0 4rem;
-
-  /* z-index: 100; */
-`;
-
-const Input = styled.input`
-  background-color: #fff;
-  border: none;
-  border-bottom: 2px solid #053271;
-
-  padding: 1rem 2rem;
-  margin: 0.5rem 0;
-  width: 100%;
-
-  &:focus {
-    outline: none;
-    border: none;
-    border: 2px solid #053271;
-  }
-`;
-
-const Button = styled.button`
-  border-radius: 3px;
-  padding: 1rem 3.5rem;
-  margin-top: 1rem;
-  border: 1px solid black;
-  background-color: black;
-  color: #fff;
-  text-transform: uppercase;
-  cursor: pointer;
-  letter-spacing: 1px;
-
-  box-shadow: 0 7px #999;
-
-  &:hover {
-    background-color: #1b1b1b;
-  }
-  &:active {
-    background-color: black;
-
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-  }
-
-  &:focus {
-    outline: none;
-  }
-`;
-
-const Title = styled.h1`
-  font-size: 3.5rem;
-  margin-bottom: 2rem;
-`;
-
-const Link = styled.a`
-  text-decoration: none;
-  color: #333;
-  font-size: 1.4rem;
-  margin: 1rem 0;
-`;
-
-const ButtonAnimate = styled.button`
-  position: absolute;
-  z-index: 1000;
-  height: 5rem;
-  width: 5rem;
-  top: 70%;
-  border: none;
-  cursor: pointer;
-
-  right: ${(props) => (props.clicked ? "52%" : "42%")};
-
-  transform: ${(props) => (props.clicked ? "rotate(360deg)" : "rotate(0)")};
-
-  transition: all 1.5s;
-  background-color: transparent;
-
-  &::before {
-    content: "😜";
-    font-size: 4rem;
-  }
-
-  &:focus {
-    outline: none;
-  }
-`;
-
-const Text = styled.div`
-  position: absolute;
-  z-index: 1000;
-  font-size: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  letter-spacing: 0.2rem;
-  color: #fff;
-
-  .attention {
-    font-size: 2.5rem;
-    position: relative;
-    margin-top: 2rem;
-  }
-
-  .attention-icon {
-    position: absolute;
-    right: ${(props) => (props.clicked ? "0" : "none")};
-    top: 100%;
-    font-size: 5rem;
-  }
-`;
-
-const ContactFormContainer = styled.div`
-background: "#111";
+const MainContainer = styled.div`
+background: "none";
 width: 100vw;
 height: 100vh;
 overflow:hidden;
-
 position: relative;
-
+backdrop-filter: blur(3px);
+display:flex;
+align-items: center;
+justify-content: center;
 h2,h3,h4,h5,h6{
   font-family:'Karla', sans-serif ;
   font-weight:500;
 }
 `
 
-function ContactForm() {
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
-  return (
+const Box = styled(motion.div)`
 
-      <form>
-          <label>
-              Name:
-              <input type="text" name="name" />
-          </label>
-          <input type="submit" value="Submit" />
-      </form>
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+align-items: center;
+justify-content: center;
 
-    
-  );
+
+
+width: 45vw;
+height:65vh;
+display: flex;
+background: linear-gradient(
+    to right,
+    ${props => props.theme.body} 50%,
+    ${props => props.theme.text} 50%) bottom,
+    linear-gradient(
+    to right,
+    ${props => props.theme.body} 50%,
+    ${props => props.theme.text} 50%) top;
+    background-repeat: no-repeat;
+background-size: 100% 2px;
+    border-right: 2px solid ${props => props.theme.text};
+    border-top:2px solid ${props => props.theme.text};
+    border-bottom:2px solid ${props => props.theme.text};
+background:rgb(251, 246, 244);
+z-index:5;
+
+`
+
+const FormOuter = styled.div`
+height:100%;
+width:100%;
+display: grid;
+grid-template-columns: 50% 50%;
+
+
+`
+
+const Form = styled(motion.div)`
+height:100%;
+width:100%;
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+flex-direction: column;
+
+`
+
+const InnerBox = styled(motion.div)`
+
+width: ${props => props.click ? '50%' : '0%'};
+height: ${props => props.click ? '100%' : '0%'};
+transition: height 0.5s ease, width 1s ease 0.5s;
+
+margin-top:-2px;
+border-left: 2px solid ${props => props.theme.body};
+border-top: 2px solid ${props => props.theme.body};
+border-bottom: 2px solid ${props => props.theme.body};
+display: flex;
+justify-content: center;
+align-items: center;
+background: #006ea9;
+height:100%;
+width:100%;
+
+`
+
+const Text = styled.div`
+color: ${props => props.theme.body};
+font-size: 3.5vh;
+`
+
+const FormBody = styled.div`
+display:flex;
+justify-content:space-evenly;
+flex-direction: column;
+height:80%;
+width:80%
+
+`
+
+const FormFooter = styled.div`
+
+`
+
+const CloseButton = styled(motion.h3)`
+cursor:pointer;
+position:absolute;
+right: 1.5rem;
+z-index:4;
+top: 1rem;
+`
+
+const Submit = styled.h2`
+display: inline-block;
+cursor: pointer;
+z-index: 1;
+transform: scale(1);
+bottom:2rem;
+transition: transform 0.5s ease-in-out;
+&::after {
+  content: '';
+  position: absolute;
+  height: 3px;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  background: #006ea9;
+  transition: width 0.2s;
 }
+&:hover::after {
+  background-color: #006ea9;
+  width: 100%;
+}
+&:hover {
+  transform: scale(1.2);
+}
+&:active { 
+  transform: scale(1.0); 
+}
+`
 
-export default ContactForm;
+const LoadingIcon = styled.img`
+position:sticky;
+z-index:6;
+transform: scale(0.5);
+
+`
+
+const Close = styled.h3`
+display: inline-block;
+cursor: pointer;
+z-index: 1;
+transform: scale(1);
+margin-bottom: 0.8em;
+margin-right:0.8em;
+transition: transform 0.5s ease-in-out;
+&::after {
+  content: '';
+  position: absolute;
+  height: 3px;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  background: #006ea9;
+  transition: width 0.2s;
+}
+&:hover::after {
+  background-color: #006ea9;
+  width: 100%;
+}
+&:hover {
+  transform: scale(1.2);
+}
+&:active { 
+  transform: scale(1.0); 
+}
+`
+
+const Contact = (props) => {
+  localStorage.setItem('formSubmitted', false)
+
+  const [loading, setLoading] = useState(false);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: ""
+  });
+
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const [open, setOpen] = React.useState(false);
+  
+  const handleCloseForm = () => {
+    props.closeForm()
+  }
+
+  const handleClickToOpen = () => {
+    setOpen(true);
+  };
+
+  const handleToClose = () => {
+    setOpen(false);
+    handleCloseForm()
+  }
+
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    console.log(name, value)
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const validateForm = () => {
+    let formErrors = {};
+    let isValid = true;
+
+    if (!formData.name) {
+      formErrors.name = "Name is required.";
+      isValid = false;
+    }
+
+    if (!formData.email) {
+      formErrors.email = "Email is required.";
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      formErrors.email = "Email is invalid.";
+      isValid = false;
+    }
+
+    if (formData.phone) {
+      if(!/^\d{10}$/.test(formData.phone)){
+        formErrors.phone = "Phone number must be 10 digits.";
+        isValid = false;
+      }
+    }
+
+    setErrors(formErrors);
+    return isValid;
+  };
+
+  const sendEmail = async (e) => {
+
+    const serviceId = "service_84d6g7j"
+    const templateId = "template_vtig6qt"
+    try {
+      setLoading(true);
+      await emailjs.send(serviceId, templateId, {
+        name: formData.name,
+        email: formData.email,
+        number: formData.phone,
+        message: formData.message
+      });
+
+      handleClickToOpen()
+    } catch (error) {
+      console.log(error);
+    } finally {
+
+      setLoading(false);
+    }
+  }
+
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      console.log(formData);
+      sendEmail()
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } else {
+      console.log("Form validation failed");
+    }
+  };
+
+
+  return (
+    <MainContainer>
+      {loading?<LoadingIcon src={loadingGif} alt="Loading..."/>:null}
+      <Box
+        key="mainBox"
+        initial={{ height: 0 }}
+        animate={{ height: '55vh' }}
+        exit={{ height: 0 }}
+        transition={{ type: 'spring', duration: 1, delay: 0 }}
+
+      >
+        <CloseButton
+          key="closeButton"
+          onClick={handleCloseForm}
+          whileHover={{ scale: 1.3 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          x
+        </CloseButton>
+        <FormOuter>
+          <InnerBox
+            key="innerBox1"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+
+          >
+            <Text>
+              <h3>Lets connect!</h3>
+            </Text>
+
+          </InnerBox>
+          <Form
+            key="innerBox2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            <FormBody>
+              <TextField
+                name="name"
+                id="standard-basic"
+                label="Name"
+                variant="standard"
+                value={formData.name}
+                onChange={handleChange}
+                error={!!errors.name}
+                helperText={errors.name}
+              />
+              <TextField
+                name="email"
+                id="standard-basic"
+                label="Email-Id"
+                variant="standard"
+                value={formData.email}
+                onChange={handleChange}
+                error={!!errors.email}
+                helperText={errors.email}
+              />
+              <TextField
+                name="phone"
+                id="standard-basic"
+                label="Contact number"
+                variant="standard"
+                value={formData.phone}
+                onChange={handleChange}
+                error={!!errors.phone}
+                helperText={errors.phone}
+              />
+              <TextField
+                name="message"
+                id="standard-basic"
+                label="Message"
+                multiline
+                maxRows={4}
+                variant="standard"
+                value={formData.message}
+                onChange={handleChange}
+                error={!!errors.message}
+                helperText={errors.message}
+                placeholder="Hi! Lets connect."
+              />
+            </FormBody>
+            <FormFooter>
+              <Submit
+                onClick={onFormSubmit}
+                aria-disabled={Object.values(errors).some((error) => error)}
+              >
+                Submit
+              </Submit>
+            </FormFooter>
+          </Form>
+        </FormOuter>
+      </Box>
+
+      <Dialog open={open} onClose={handleToClose}>
+        <DialogTitle>{"Thank You!"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            I will get back to you as soon as possible!
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Close
+            onClick={handleToClose}
+          >
+            Close
+          </Close>
+        </DialogActions>
+      </Dialog>
+
+    </MainContainer>
+
+
+  );
+};
+
+export default Contact;

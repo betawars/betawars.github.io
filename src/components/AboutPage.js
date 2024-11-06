@@ -140,7 +140,7 @@ const AboutPage = () => {
                 whileHover={{scale: 1.1}}
                 whileTap={{scale: 0.9}}
                 >
-                    My Skills
+                    My Skills.
                 </motion.h2>
             </SKILLS>
 
@@ -158,7 +158,7 @@ const AboutPage = () => {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                 >
-                    Work
+                    Work.
                 </motion.h2>
             </WORK>
 
@@ -188,7 +188,7 @@ const AboutPage = () => {
                         Outside of coding, I’m passionate about video games, trekking, and reading. I enjoy bringing ideas to life and would love to connect with fellow tech enthusiasts.
                         <br /> <br />
                         Let’s talk tech or chat about universe!
-                        (Psst.! Don't forget me to tell your favorite videogame and/or book :))
+                        (Psst!. Remember to share your favorite book or video game with me. :))
                     </motion.div>
                 </Main>
 
