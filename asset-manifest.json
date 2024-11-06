@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.58462fbc.css",
-    "main.js": "/static/js/main.61d154e6.js",
+    "main.js": "/static/js/main.6acb82e5.js",
     "static/media/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg": "/static/media/patrick-tomasso-Oaqk7qqNh_c-unsplash.8ca90014fb6ce5980110.jpg",
     "static/media/profile-img.png": "/static/media/profile-img.e56e7bd9450f2de7fe47.png",
     "static/media/issac.png": "/static/media/issac.db5a291dbce230f3749f.png",
@@ -9,16 +9,25 @@
     "static/media/loading.gif": "/static/media/loading.05ca3885e30e9369a574.gif",
     "static/media/springboot.png": "/static/media/springboot.37694bad96bd99356c0f.png",
     "static/media/react.png": "/static/media/react.393c28308a1cd4635e0f.png",
+    "static/media/springboot1.png": "/static/media/springboot1.27edecee6f3b43e78235.png",
+    "static/media/androidstudio1.png": "/static/media/androidstudio1.cf4371411afbde340fe1.png",
+    "static/media/react1.png": "/static/media/react1.df5837f92fb219f9ad22.png",
+    "static/media/sql1.png": "/static/media/sql1.d2e572b6f6da2443fbed.png",
     "static/media/angular.png": "/static/media/angular.eb86501315c9b9b01856.png",
     "static/media/css.png": "/static/media/css.a46cac80d3324451c2b7.png",
     "static/media/html.png": "/static/media/html.2692588a2b59cfa12232.png",
+    "static/media/kotlin1.png": "/static/media/kotlin1.9c37757b385a7b9f7acf.png",
+    "static/media/java1.png": "/static/media/java1.32f8deaa759e952bfe40.png",
+    "static/media/python1.png": "/static/media/python1.284f2319d3fb729cdb6a.png",
+    "static/media/angular1.png": "/static/media/angular1.035f11631150929868ac.png",
     "static/media/restapi.png": "/static/media/restapi.94643c6102fec3373e6a.png",
+    "static/media/css1.png": "/static/media/css1.8012b0ec544e48e3d1d1.png",
     "index.html": "/index.html",
     "main.58462fbc.css.map": "/static/css/main.58462fbc.css.map",
-    "main.61d154e6.js.map": "/static/js/main.61d154e6.js.map"
+    "main.6acb82e5.js.map": "/static/js/main.6acb82e5.js.map"
   },
   "entrypoints": [
     "static/css/main.58462fbc.css",
-    "static/js/main.61d154e6.js"
+    "static/js/main.6acb82e5.js"
   ]
 }
