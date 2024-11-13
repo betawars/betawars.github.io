@@ -23,7 +23,7 @@ const Icons = styled.div`
 
 const Line = styled(motion.span)`
   width: 2px;
-  height: 8rem;
+  height: 10vh;
   background-color: ${(props) =>
     props.color === "dark" ? DarkTheme.text : DarkTheme.body};
 `;
@@ -86,7 +86,7 @@ const SocialIcons = (props) => {
           height: 0,
         }}
         animate={{
-          height: "8rem",
+          height: "10vh", 
         }}
         transition={{
           type: "spring",

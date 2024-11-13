@@ -4,6 +4,7 @@ import { lightTheme } from "./components/Themes";
 import { AnimatePresence } from "framer-motion";
 import GlobalStyle from "./globalStyles";
 import emailjs from '@emailjs/browser';
+import { useMediaQuery } from 'react-responsive';
 
 //Components
 import Main from "./components/Main";
@@ -12,34 +13,51 @@ import BlogPage from "./components/BlogPage";
 import WorkPage from "./components/WorkPage";
 import MySkillsPage from "./components/MySkillsPage";
 import { useEffect } from "react";
+import MobileProvider from "./components/MobileComponents/MobileProvider";
 
 function App() {
   const location = useLocation();
   useEffect(() => emailjs.init("qF0ZSkp-SRC-nsEEh"), []);
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   return (
     <>
-      <GlobalStyle />
+      {
+        !isMobile ? (
+          <>
+            <GlobalStyle />
 
-      <ThemeProvider theme={lightTheme}>
+            <ThemeProvider theme={lightTheme}>
 
-        <AnimatePresence mode='wait'>
+              <AnimatePresence mode='wait'>
 
-          <Routes key={location.pathname} location={location} >
+                <Routes key={location.pathname} location={location} >
 
-            <Route path="/" element={<Main />} />
+                  <Route path="/" element={<Main />} />
 
-            <Route path="/about" element={<AboutPage />} />
+                  <Route path="/about" element={<AboutPage />} />
 
-            <Route path="/blog" element={<BlogPage />} />
+                  <Route path="/blog" element={<BlogPage />} />
 
-            <Route path="/work" element={<WorkPage />} />
+                  <Route path="/work" element={<WorkPage />} />
 
-            <Route path="/skills" element={<MySkillsPage />} />
+                  <Route path="/skills" element={<MySkillsPage />} />
 
-            <Route path="*" element={<Main click={true} />} />
-          </Routes>
-        </AnimatePresence>
-      </ThemeProvider>
+                  <Route path="*" element={<Main click={true} />} />
+                </Routes>
+              </AnimatePresence>
+            </ThemeProvider>
+          </>
+        )
+
+          : (
+            <>
+              <MobileProvider/>
+            
+            
+            </>
+          )
+      }
+
     </>
   );
 }

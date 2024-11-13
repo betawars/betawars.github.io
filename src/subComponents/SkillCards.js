@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, CardActionArea, CardContent, CardMedia, Grid2, Typography } from '@mui/material';
 import {cards} from "../data/WorkData"
+import { motion } from 'framer-motion'
 
 const SkillCards = (props) => {
 
@@ -30,13 +31,20 @@ const SkillCards = (props) => {
               <Card style={cardStyle} sx={{ maxWidth: 345 }}>
                 <a href={card.link} target='_blank' style={{textDecoration:'none'}}>
                   <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      height="auto" // Set a fixed height
-                      image={props.iconTheme?card.img:card.img1}
-                      alt="skill"
-                      sx={{ objectFit: "contain" }}
-                    />
+                    <motion.div
+                      key={props.iconTheme ? card.img : card.img1}
+                      initial={{ opacity: 0, scale: 0.9 }} 
+                      animate={{ opacity: 1, scale: 1 }}   
+                      transition={{ duration: 0.5 }}        
+                    >
+                      <CardMedia
+                        component="img"
+                        height="auto"
+                        image={props.iconTheme ? card.img1 : card.img}
+                        alt="skill"
+                        sx={{ objectFit: "contain" }}
+                      />
+                    </motion.div>
                     <CardContent style={cardContentStyle} >
                       <Typography variant='inherit' component="div">
                         {card.content}
