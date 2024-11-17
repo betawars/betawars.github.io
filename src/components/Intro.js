@@ -123,7 +123,7 @@ const Intro = () => {
                     transition={{ duration: 1, delay: 2 }}
                 >
                     <Text>
-                        <h1>Hi,</h1>
+                        <h1>Hi</h1>
                         <h3>I'm Shashank!</h3>
                         <h6>I’m a Software Developer and grad student at OSU. I love building intuitive UIs with React, Kotlin and solid backends. I enjoy turning ideas into real products and staying updated with new tech. Let’s talk!</h6>
                     </Text>
